@@ -484,15 +484,19 @@ for num, car in enumerate(carChoices, 1):
     print("Creating Account...")
     result = createAccount()
     if result[1] == 200:
-        if result[2]["resultData"][0]["resultCode"] == "FAILURE":
-            if result[2]["resultData"][2]["message"]  == "Device ID is already active":
-                print("\nThis car has already been registered and is still currently active. Please try again later.\n")
-                alreadyActive = True
+        print(f"DEBUG: Response structure: {result[2]}\n")
+        if "resultData" in result[2]:
+            if result[2]["resultData"][0]["resultCode"] == "FAILURE":
+                if result[2]["resultData"][2]["message"]  == "Device ID is already active":
+                    print("\nThis car has already been registered and is still currently active. Please try again later.\n")
+                    alreadyActive = True
+                else:
+                    print(f"\nError: {result[2]["resultData"][2]["message"]}\n")
+                    alreadyActive = True
             else:
-                print(f"\nError: {result[2]["resultData"][2]["message"]}\n")
-                alreadyActive = True
+                print("Account Created\n")
         else:
-            print("Account Created\n")
+            print(f"Unexpected response format: {result[2]}\n")
     else:
         print(f"!!Account Created Unsuccessfully!! Status Code: {result[1]}\n")
         exit()
