@@ -1,9 +1,9 @@
 [
   {
-    "owner": "NAME",
-    "make": "MAKE",
-    "model": "MODEL",
-    "id": "RADIO_ID_FROM_CHANNEL_0",
+    "owner": "William Mayes",
+    "make": "Toyota",
+    "model": "RAV4",
+    "id": "JTMWF4DV6B5042670",
     "lastRenewed": "",
     "note": "REMOVE ALL THIS DATA BEFORE USING SCRIPT!! MAKE SURE TO RENAME THIS FILE TO 'cars.json'."
   },
